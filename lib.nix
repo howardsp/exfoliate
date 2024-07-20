@@ -1,3 +1,4 @@
+{}:
   let
     nixpkgs = null;
     home-manager = null;
