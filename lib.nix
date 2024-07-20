@@ -29,5 +29,5 @@ nixpkgs ? null
       inherit createSystem;
     };
   in
-  lib
+  lib;
 }
