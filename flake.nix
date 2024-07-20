@@ -8,6 +8,7 @@
   outputs = { self, systems }: {
     self = import ./lib.nix {
       #defaultSystems = import systems;
+      
     };
 
     #templates = {
