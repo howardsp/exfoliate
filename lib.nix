@@ -1,4 +1,5 @@
 {
+inputs = {
 lib ? null,
 home-manager ? null,
 nixpkgs ? null
@@ -29,3 +30,4 @@ nixpkgs ? null
     };
   in
   lib
+}
