@@ -1,12 +1,11 @@
 {
-inputs = {
-lib ? null,
-home-manager ? null,
-nixpkgs ? null
+  lib ? null,
+  home-manager ? null
 }:
 
   let
 
+    nixpkgs = null;
     createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux",  allowUnfree ? true }: nixpkgs.lib.nixosSystem {
 
       inherit system;
@@ -29,5 +28,4 @@ nixpkgs ? null
       inherit createSystem;
     };
   in
-  lib;
-}
+  lib
