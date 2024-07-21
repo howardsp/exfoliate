@@ -6,7 +6,8 @@ let
             modules = [
                 (./hosts/${host}.nix)
                 (./hardware/hardware-${host}.nix)
-                (builtins.mkIf allowUnfree ({nixpkgs.config.allowUnfree = true;}))
+                #(builtins.mkIf allowUnfree ({nixpkgs.config.allowUnfree = true;}))
+                ({nixpkgs.config.allowUnfree = true;})
                 home-manager.nixosModules.home-manager {
                   home-manager.useUserPackages = true;
                   home-manager.useGlobalPkgs = true;
