@@ -1,5 +1,3 @@
-{}: 
-
 {
   self,
   home-manager ? null,
