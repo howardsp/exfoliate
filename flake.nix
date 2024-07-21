@@ -1,7 +1,9 @@
 {
   description = "Pure Nix flake utility functions";
 
-
+   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";        
+   inputs.home-manager.url = "github:nix-community/home-manager";
+  
   # Externally extensible flake systems. See <https://github.com/nix-systems/nix-systems>.
   #inputs.systems.url = "github:nix-systems/default";
 
