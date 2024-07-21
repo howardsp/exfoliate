@@ -1,27 +1,23 @@
 {  
   home-manager, nixpkgs,
-  host ? "igloo",
-  username ? "howardsp", 
-  fullname ? "Howard Spector", 
-  system ? "x86_64-linux",  
-  allowUnfree ? true
 }: 
-#let     
-    nixpkgs.lib.nixosSystem {
-              modules = [
-                  (./hosts/${host}.nix)
-                  (./hardware/hardware-${host}.nix)
-                  (builtins.mkIf allowUnfree {nixpkgs.config.allowUnfree = true;})
-                  home-manager.nixosModules.home-manager {
-                    home-manager.useUserPackages = true;
-                    home-manager.useGlobalPkgs = true;
-                    home-manager.users.howardsp = (./users/${username}-${host}.nix);
-                    home-manager.extraSpecialArgs = { inherit  host username fullname; };
-                  }
-                ];
-                specialArgs = { inherit  host username fullname  home-manager;};
- 
-         }
-#  in
- #output
+let     
+    createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {        
+            modules = [
+                (./hosts/${host}.nix)
+                (./hardware/hardware-${host}.nix)
+                (builtins.mkIf allowUnfree {nixpkgs.config.allowUnfree = true;})
+                home-manager.nixosModules.home-manager {
+                  home-manager.useUserPackages = true;
+                  home-manager.useGlobalPkgs = true;
+                  home-manager.users.howardsp = (./users/${username}-${host}.nix);
+                  home-manager.extraSpecialArgs = { inherit  host username fullname; };
+                }
+              ];
+              specialArgs = { inherit  host username fullname  home-manager;};
+         };
+  lib = { inherit createSystem; };
+in
+lib
+
   
