@@ -2,7 +2,7 @@
   home-manager, nixpkgs,
 }: 
 let     
-    createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {        
+    createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux", allowUnfree ? true  }: nixpkgs.lib.nixosSystem {        
             modules = [
                 (./hosts/${host}.nix)
                 (./hardware/hardware-${host}.nix)
