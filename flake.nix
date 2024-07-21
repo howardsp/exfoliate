@@ -7,6 +7,7 @@
 
   outputs = { self, systems }: {
     lib = import ./lib.nix;
+    
 
     #templates = {
     #  default = self.templates.each-system;
