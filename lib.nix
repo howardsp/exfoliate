@@ -1,8 +1,8 @@
 {  
-  home-manager, nixpkgs,
+  home-manager, nixpkgs, wdir 
 }: 
 let     
-    wdir = builtins.getEnv("PWD");
+    
     createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux", allowUnfree ? true  }: nixpkgs.lib.nixosSystem {        
             modules = [
                 ("${wdir}/hosts/${host}.nix")
