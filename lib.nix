@@ -1,6 +1,6 @@
 {  
   home-manager, nixpkgs,
-  host, 
+  host ? "igloo",
   username ? "howardsp", 
   fullname ? "Howard Spector", 
   system ? "x86_64-linux",  
