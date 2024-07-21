@@ -6,7 +6,7 @@
   #inputs.systems.url = "github:nix-systems/default";
 
   outputs = { self, systems }: {
-    createSystem = import ./lib.nix;
+    createSystem = import ./lib.nix {inherit home-manager nixpkgs; };
     
 
     #templates = {
