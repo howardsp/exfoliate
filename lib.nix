@@ -1,12 +1,14 @@
-{home-manager ? null, nixpkgs ? null}: 
+{lib}: 
 
-{        
-    createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", 
-                     system ? "x86_64-linux",  allowUnfree ? true }:        
-          #let
-          #  inherit system;            
-          #in
-            nixpkgs.lib.nixosSystem {
+{
+  self,
+  home-manager,
+  nixpkgs,
+  host, username ? "howardsp", fullname ? "Howard Spector", 
+                     system ? "x86_64-linux",  allowUnfree ? true 
+}: 
+let         
+    output = nixpkgs.lib.nixosSystem {
               modules = [
                   (./hosts/${host}.nix)
                   (./hardware/hardware-${host}.nix)
@@ -19,5 +21,7 @@
                   }
                 ];
                 specialArgs = { inherit  host username fullname  home-manager;};
-          };
-}
+ 
+         };
+  in
+  output
