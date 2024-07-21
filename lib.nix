@@ -7,7 +7,7 @@
   allowUnfree ? true
 }: 
 #let     
-    output = nixpkgs.lib.nixosSystem {
+    nixpkgs.lib.nixosSystem {
               modules = [
                   (./hosts/${host}.nix)
                   (./hardware/hardware-${host}.nix)
