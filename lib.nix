@@ -6,7 +6,7 @@
   system ? "x86_64-linux",  
   allowUnfree ? true
 }: 
-let     
+#let     
     output = nixpkgs.lib.nixosSystem {
               modules = [
                   (./hosts/${host}.nix)
@@ -21,7 +21,7 @@ let
                 ];
                 specialArgs = { inherit  host username fullname  home-manager;};
  
-         };
-  in
-  self
+         }
+#  in
+ #output
   
