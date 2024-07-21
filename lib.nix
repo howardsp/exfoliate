@@ -1,5 +1,4 @@
-{
-  self,
+{  
   home-manager ? null,
   nixpkgs ? null,
   host ? null, 
