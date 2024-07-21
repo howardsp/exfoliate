@@ -1,6 +1,6 @@
 {  
   home-manager, nixpkgs,
-  host ? null, 
+  host, 
   username ? "howardsp", 
   fullname ? "Howard Spector", 
   system ? "x86_64-linux",  
@@ -23,4 +23,4 @@ let
  
          };
   in
-  output
+  
