@@ -1,13 +1,13 @@
 {  
-  home-manager ? null,
-  nixpkgs ? null,
   host ? null, 
   username ? "howardsp", 
   fullname ? "Howard Spector", 
   system ? "x86_64-linux",  
   allowUnfree ? true
 }: 
-let         
+let    
+    inherit home-manager nixpkgs;
+    
     output = nixpkgs.lib.nixosSystem {
               modules = [
                   (./hosts/${host}.nix)
