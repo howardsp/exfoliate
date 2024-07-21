@@ -7,7 +7,7 @@
   # Externally extensible flake systems. See <https://github.com/nix-systems/nix-systems>.
   #inputs.systems.url = "github:nix-systems/default";
 
-  outputs = { self, system }: {
+  outputs = { self }: {
     createSystem = import ./lib.nix;
     
 
