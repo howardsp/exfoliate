@@ -5,13 +5,13 @@ let
     wdir = "";
     createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux", allowUnfree ? true  }: nixpkgs.lib.nixosSystem {        
             modules = [
-                ("${wdir}/hosts/${host}.nix")
-                ("${wdir}/hardware/hardware-${host}.nix")
+                (".${wdir}/hosts/${host}.nix")
+                (".${wdir}/hardware/hardware-${host}.nix")
                 #(builtins.mkIf allowUnfree ({nixpkgs.config.allowUnfree = true;}))                
                 home-manager.nixosModules.home-manager {
                   home-manager.useUserPackages = true;
                   home-manager.useGlobalPkgs = true;
-                  home-manager.users.howardsp = ("${wdir}/users/${username}-${host}.nix");
+                  home-manager.users.howardsp = (".${wdir}/users/${username}-${host}.nix");
                   home-manager.extraSpecialArgs = { inherit  host username fullname; };
                 }
               ];
