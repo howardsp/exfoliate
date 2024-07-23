@@ -1,3 +1,4 @@
+{config, lib, pkgs, home-manager}: {
 #{  
 #  home-manager, nixpkgs 
 #}: 
@@ -17,6 +18,7 @@
               ];
               specialArgs = { inherit  host username fullname  home-manager;};
          };
+}
 #  lib = { inherit createSystem; };
 #in
 #lib
