@@ -1,8 +1,8 @@
-{  
-  home-manager, nixpkgs 
-}: 
-let     
-    wdir = "";
+#{  
+#  home-manager, nixpkgs 
+#}: 
+#let     
+#    wdir = "";
     createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux", allowUnfree ? true  }: nixpkgs.lib.nixosSystem {        
             modules = [
                 ("./hosts/${host}.nix")
@@ -17,8 +17,8 @@ let
               ];
               specialArgs = { inherit  host username fullname  home-manager;};
          };
-  lib = { inherit createSystem; };
-in
-lib
+#  lib = { inherit createSystem; };
+#in
+#lib
 
   
