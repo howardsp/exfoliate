@@ -8,7 +8,7 @@
   #inputs.systems.url = "github:nix-systems/default";
 
   outputs = { self, nixpkgs, home-manager }: {
-    lib = import ./lib.nix {inherit nixpkgs home-manager; };
+    lib = import ./lib.nix;
     
 
     #templates = {
