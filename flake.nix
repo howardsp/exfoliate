@@ -7,9 +7,13 @@
   # Externally extensible flake systems. See <https://github.com/nix-systems/nix-systems>.
   #inputs.systems.url = "github:nix-systems/default";
 
-  outputs = { self, nixpkgs, home-manager }: {
-    lib = import ./lib.nix;
-    
+  outputs = { self, nixpkgs, ... }: {
+    self, 
+    nixpkgs,
+    ...
+  } @inputs:  {
+    createHomeModule = import ./lib.nix;
+  }
 
     #templates = {
     #  default = self.templates.each-system;
@@ -27,4 +31,4 @@
     #  };
     #};
   };
-}
+

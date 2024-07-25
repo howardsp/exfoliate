@@ -1,8 +1,7 @@
 {config, lib, inputs, ...}: 
 
-let
-   
-    createHomeModule = {username, fullname, host}: inputs.home-manager.nixosModules.home-manager {
+let   
+  createHomeModule = {username, fullname, host}: {} {
       home-manager.useGlobalPkgs = true;
       home-manager.home.useUserPackages = true;   
       home-manager.users.${username} = (./users/${username}-${host}.nix);
