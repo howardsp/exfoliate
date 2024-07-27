@@ -1,7 +1,7 @@
 {config, lib, inputs, home-manager, ...}: 
 
 let   
-  createHomeModuleConfig =  {host, username ? "howardsp", fullname ? "Howard Spector", ...}: {
+  createHomeModuleConfig =  {host, username ? "howardsp", fullname ? "Howard Spector", ...}:  {
           home-manager.useUserPackages =  true;
           home-manager.userGlobalPkgs = true;
           home-manager.users.${username} = "(./users/${username}-${host}.nix)";          
