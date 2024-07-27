@@ -13,7 +13,7 @@
     ...
   } @inputs:  {
       createHomeModuleConfig  = import ./lib.nix;
-  }
+  };
 
     #templates = {
     #  default = self.templates.each-system;
@@ -30,5 +30,5 @@
     #    description = "A flake with tests";
     #  };
     #};
-  };
+  }
 
