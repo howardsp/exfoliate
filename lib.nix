@@ -2,7 +2,7 @@
   home-manager, nixpkgs 
 }: 
 let         
-    createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux", allowUnfree ? true  }: modules 
+    createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux", allowUnfree ? true  }: {
               [ 
                 ("./hosts/${host}.nix")
                 ("./hardware/hardware-${host}.nix")
@@ -15,6 +15,7 @@ let
                }
              ];
              specialArgs = { inherit  host username fullname  home-manager;};      
+    }
 
   lib = { inherit createSystem; };
 in
