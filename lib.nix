@@ -1,13 +1,14 @@
 {config, lib, inputs, ...}: 
 
 let   
-  createHomeModule = {username, fullname, host}: {} {
-      home-manager.useGlobalPkgs = true;
-      home-manager.home.useUserPackages = true;   
-      home-manager.users.${username} = (./users/${username}-${host}.nix);
-      home-manager.extraSpecialArgs = { inherit  host username fullname; };       
-  };
-  lib = { inherit createHomeModule; };
+  createHomeModuleConfig =  {host, username ? "howardsp", fullname ? "Howard Spector", ...}: {
+          home-manager.useUserPackages =  true;
+          home-manager.userGlobalPkgs = true;
+          home-manager.users.${username} = "(./users/${username}-${host}.nix)";          
+          home-manager.extraSpecialArgs = "inherit  host username fullname;";          
+        }; 
+
+  lib = { inherit createHomeModuleConfig; };
 in
 lib
 
