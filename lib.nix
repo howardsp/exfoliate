@@ -1,4 +1,4 @@
-{config, lib, inputs, ...}: 
+{config, lib, inputs, home-manager, ...}: 
 
 let   
   createHomeModuleConfig =  {host, username ? "howardsp", fullname ? "Howard Spector", ...}: {
