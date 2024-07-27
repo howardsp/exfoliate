@@ -12,7 +12,7 @@
     nixpkgs,
     ...
   } @inputs:  {
-    createHomeModule = import ./lib.nix;
+      createHomeModuleConfig  = import ./lib.nix;
   }
 
     #templates = {
