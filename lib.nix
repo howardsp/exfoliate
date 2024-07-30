@@ -1,7 +1,7 @@
 { home-manager, nixpkgs, inputs, ... }: 
 let         
     createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux", allowUnfree ? true  }: nixpkgs.lib.nixosSystem {
-               
+            inherit system;   
             modules = [
                 ("${inputs.self.outPath}/hosts/${host}.nix")
                 ("${inputs.self.outPath}/hardware/hardware-${host}.nix")
