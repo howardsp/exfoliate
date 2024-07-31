@@ -1,6 +1,6 @@
 { home-manager, nixpkgs, inputs, ... }: 
-let         
-    createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux", allowUnfree ? true  }: nixpkgs.lib.nixosSystem {
+let             
+    createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux", allowUnfree ? true  }: nixpkgs.lib.nixosSystem {      
             inherit system;   
             modules = [
                 ("${inputs.self.outPath}/hosts/${host}.nix")
@@ -15,6 +15,6 @@ let
             ];    
              specialArgs = { inherit  host username fullname  home-manager;};      
     };
-    lib = { inherit createSystem; };
+    #lib = { inherit createSystem; };
 in
 lib
