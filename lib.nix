@@ -15,6 +15,6 @@ let
             ];    
              specialArgs = { inherit  host username fullname  home-manager;};      
     };
-    #lib = { inherit createSystem; };
+    lib = { inherit createSystem; };
 in
 lib
